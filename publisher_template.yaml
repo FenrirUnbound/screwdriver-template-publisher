@@ -1,0 +1,10 @@
+name: FenrirUnbound/template-publisher
+version: '0.1'
+description: Template for publishing and testing a template
+maintainer: darren.matsumoto@gmail.com
+config:
+  image: node:8
+  steps:
+  - assemble_template: echo "assemble template"
+  - test_template: echo "test template"
+  - publish_template: echo "publish template"

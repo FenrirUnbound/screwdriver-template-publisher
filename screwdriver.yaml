@@ -1,0 +1,15 @@
+shared:
+  image: node:8
+
+jobs:
+  publish:
+    requires:
+    - ~commit
+    steps:
+    - install: npm install -g screwdriver-template-main
+    - validate: |
+        export SD_TEMPLATE_PATH=publisher_template.yaml
+        template-validate
+    - publish: |
+        export SD_TEMPLATE_PATH=publisher_template.yaml
+        template-publish | tee $SD_ARTIFACTS_DIR/publish.output
